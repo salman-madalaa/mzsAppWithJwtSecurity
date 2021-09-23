@@ -10,14 +10,17 @@ import { UserService } from 'src/app/services/userService/user.service';
 export class AdminComponent implements OnInit {
 
   type ='user';
+  users:any;
   constructor(private _userSer:UserService,private _roleService:RoleService) { }
 
   ngOnInit(): void {
+    this.getAllUers();
   }
 
   getAllUers(){
     this._userSer.getallUsers().subscribe((data)=>{
       console.log(data);
+      this.users=data;
     })
   }
 

@@ -1,31 +1,43 @@
 <mat-toolbar color="">
-  <mat-button-toggle-group [(ngModel)]="type" >
+  <mat-button-toggle-group [(ngModel)]="type">
     <mat-button-toggle value="user">Users</mat-button-toggle>
     <mat-button-toggle value="role">Roles</mat-button-toggle>
   </mat-button-toggle-group>
 </mat-toolbar>
 
-<div class="content" >
-  <div  *ngIf="type == 'user'">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid"  *ngIf="type == 'user'">
+    <div *ngFor="let user of users">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{user.firstName | titlecase}} {{user.lastName | titlecase}}</mat-card-title>
+          <mat-card-subtitle *ngFor="let role of user.roles">{{role.name}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="user-details">
+            <div>
+                <i class="las la-user"></i>
+                <span >{{user.firstName | titlecase}}{{user.lastName | titlecase}}</span>
+            </div>
+            <div>
+                <i class="las la-envelope"></i>
+                <span >{{user.email}}</span>
+            </div>
+            <div>
+                <i class="las la-phone"></i>
+                <span >{{user.phoneNumber}}</span>
+            </div>
+        </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
 
   </div>
 
@@ -39,7 +51,3 @@
   </div>
 
 </div>
-
-
-
-

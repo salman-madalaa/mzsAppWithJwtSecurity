@@ -11,6 +11,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getallUsers(): Observable<any>{
-    return this.http.get(this.baseUrl +'')
+    return this.http.get(this.baseUrl +'api/user/all')
   }
 }

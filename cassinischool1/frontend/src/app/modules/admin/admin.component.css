@@ -46,3 +46,21 @@
 mat-grid-tile {
   background: lightblue;
 }
+
+
+ .user-details div {
+  padding: 5px;
+  margin-bottom: 5px;
+  color: #707d91;
+}
+
+.user-details div i {
+  margin-right: 5px;
+}
+
+.example-card:hover {
+  box-shadow: 0 7px 14px rgba(147, 148, 150, 0.25),
+  0 5px 5px rgba(177, 177, 179, 0.22);
+  transition: all .2s ease;
+  transform: translate3D(0, -1px, 0) scale(1.01);
+}
