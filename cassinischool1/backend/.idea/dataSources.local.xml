@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - schoolZion@localhost" uuid="813d7b83-4607-4952-abb6-64269b9e2ab0">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>schoolzion.*</schema-pattern>
+      <default-schemas>schoolzion.*</default-schemas>
+    </data-source>
+  </component>
+</project>
