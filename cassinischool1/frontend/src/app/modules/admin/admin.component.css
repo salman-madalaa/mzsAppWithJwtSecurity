@@ -1,12 +1,30 @@
 
 
 .example-card {
-  max-width: 400px;
+  max-width: 450px !important;
+  margin:10px;
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+  height: 70px;
+  width: 70px;
+}
+.example-header-image img{
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.noImage{
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #ccc;
+  text-align: center;
+  justify-content: center;
+  display: flex !important;
+  flex-direction: column;
 }
 
 ::ng-deep .mat-button-toggle-group{
@@ -15,8 +33,11 @@
   padding:0px !important;
   align-items: center;
   /* margin-left:50%; */
-  left:50%;
-  right: 50%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  border: none;
 }
 
 ::ng-deep .mat-button-toggle{
@@ -41,6 +62,8 @@
   margin-top: 75px !important;
   height: 94%;
   overflow: auto;
+  /* margin: 16px;
+  padding: 16px; */
 }
 
 mat-grid-tile {
@@ -63,4 +86,102 @@ mat-grid-tile {
   0 5px 5px rgba(177, 177, 179, 0.22);
   transition: all .2s ease;
   transform: translate3D(0, -1px, 0) scale(1.01);
+}
+
+::ng-deep .mat-drawer-content {
+  overflow: hidden !important;
+}
+
+::ng-deep .mat-drawer-inner-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+  -webkit-overflow-scrolling: touch;
+ 
+}
+
+.example-container {
+  margin-top: 75px !important;
+  width: 100%;
+  height: 95%;
+ 
+}
+
+.mat-drawer{
+  width: 45vw;
+  overflow: hidden;
+}
+
+h4{
+  margin-left: 41%;
+}
+
+.sidepanelHeader{
+  position: sticky;
+  top:0px;
+  height: 50px !important;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fbfe;
+}
+
+#close{
+  font-size: 30px !important;
+   margin-right: 10px;
+   cursor: pointer;
+   margin-top: -10px !important;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 5px auto;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+
+
+.container
+{
+  overflow:auto;
+}
+
+.sidepanelFooter
+{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  display: flex;
+  border-top: 1px solid #ccc;
+  align-items: center;
+  background-color: #f9fbfe;
+}
+
+.imageCard{
+ 
+  width: 150px;
+  height:200px;
+}
+
+.imageCard img{
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.sidepanelBody{
+  overflow: auto;
+  height: 83% !important;
 }

@@ -33,6 +33,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import {MatMenuModule} from '@angular/material/menu';
 import { MdePopoverModule } from '@material-extended/mde';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { AdminSidepanelComponent } from './admin/adminSidepanel/admin-sidepanel/admin-sidepanel.component';
 
 const MaterialComponents=[
   MatButtonModule,
@@ -102,7 +103,7 @@ const MaterialComponents=[
 @NgModule({
   imports: [ MaterialComponents ],
   exports:[ MaterialComponents],
-  declarations: [LogoutComponent],
+  declarations: [LogoutComponent, AdminSidepanelComponent],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ]

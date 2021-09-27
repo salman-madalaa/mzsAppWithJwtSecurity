@@ -22,6 +22,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.util.HashSet;
@@ -71,7 +72,7 @@ public class AuthController extends BaseController {
 
     @PostMapping("/signup")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<?> registerUser(@RequestBody @Valid SignupRequest signUpRequest) {
+    public ResponseEntity<?> registerUser(@RequestBody @Valid  SignupRequest signUpRequest ) {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
@@ -92,6 +93,7 @@ public class AuthController extends BaseController {
         user.setUsername(signUpRequest.getUsername());
         user.setPassword(encoder.encode(signUpRequest.getPassword()));
         user.setEmail(signUpRequest.getEmail());
+       user.setImage(signUpRequest.getImage());
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();

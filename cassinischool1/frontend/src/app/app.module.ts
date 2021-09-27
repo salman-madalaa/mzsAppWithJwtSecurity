@@ -23,6 +23,9 @@ import { ImportExportComponent } from './modules/import-export/import-export.com
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 import { CommonDialogComponent } from './common-dialog/common-dialog.component';
 import { AdminComponent } from './modules/admin/admin.component';
+import { OverlaySidePanelModule } from './components/overlay-side-panel/overlay-side-panel.module';
+import { AdminSidepanelComponent } from './modules/admin/adminSidepanel/admin-sidepanel/admin-sidepanel.component';
+import { ShortNamePipe } from './directives/shortNamePipe';
 
 @NgModule({
   declarations: [
@@ -36,18 +39,20 @@ import { AdminComponent } from './modules/admin/admin.component';
     ImportExportComponent,
     MatConfirmDialogComponent,
     CommonDialogComponent,
-    AdminComponent
+    AdminComponent,
+    ShortNamePipe,
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, ReactiveFormsModule,
     BrowserAnimationsModule, MatTabsModule, FlexModule,
     MatTableModule, MatDialogModule, MatFormFieldModule,
-    MaterialModule, NgxSpinnerModule,
+    MaterialModule, NgxSpinnerModule,OverlaySidePanelModule,
   ],
   entryComponents: [
     AllStudentsComponent, UpdateStudentComponent,CommonDialogComponent,
-    NewStudentComponent,  MatConfirmDialogComponent,
+    NewStudentComponent,  MatConfirmDialogComponent,AdminSidepanelComponent,
+    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [{

@@ -23,7 +23,7 @@ public class User {
     private Long id;
 
     @NotBlank
-    @Size(max = 20)
+    @Size(max = 20,message = "firstName should not more then 20 letters")
     private String firstName;
 
 
@@ -33,6 +33,8 @@ public class User {
 
     private Long phoneNumber;
 
+    @Lob
+    private String image;
 
     @NotBlank
     @Size(max = 20)

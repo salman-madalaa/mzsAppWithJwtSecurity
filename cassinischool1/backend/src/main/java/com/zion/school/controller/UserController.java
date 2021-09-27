@@ -4,10 +4,7 @@ import com.zion.school.core.BaseController;
 import com.zion.school.model.security.User;
 import com.zion.school.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -33,8 +30,18 @@ public class UserController extends BaseController {
     }
 
     @RequestMapping(value = "/all",method = RequestMethod.GET)
-    public List<User> gtAll(){
+    public List<User> getAll(){
         return  userService.getAll();
+    }
+
+    @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
+    public User updateUser(@PathVariable("id") Long id,@RequestBody User user){
+        return  userService.updateUser(id, user);
+    }
+
+    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    public void updateUser(@PathVariable("id") Long id){
+       userService.deleteUser(id);
     }
 
 }
