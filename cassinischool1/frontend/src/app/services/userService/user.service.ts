@@ -29,4 +29,9 @@ export class UserService {
   deleteUser(id:number): Observable<any>{
     return this.http.delete(this.baseUrl + 'api/user/' + id);
   }
+
+  getallRoles(): Observable<any>{
+    return this.http.get(this.baseUrl +'api/roles/all')
+  }
+
 }

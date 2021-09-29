@@ -14,7 +14,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Mount Zion E.M.School (Tendukheda)';
+  title = 'Cassini E.M.School (Hyderabad)';
+  // title = 'Mount Zion E.M.School (Tendukheda)';
   productForm: FormGroup;
   isLogged: boolean = true;
   panelOpenState = false;

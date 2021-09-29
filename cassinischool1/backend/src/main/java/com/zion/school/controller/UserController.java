@@ -4,6 +4,7 @@ import com.zion.school.core.BaseController;
 import com.zion.school.model.security.User;
 import com.zion.school.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
@@ -19,9 +20,14 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
+    @Value("${spring.jpa.hibernate.ddl-auto}")
+    private String databaseType;
+
     @PostConstruct
     public void initRoleAndUsers(){
-        userService.initRoleAndUser();
+        if(databaseType == "create"){
+            userService.initRoleAndUser();
+        }
     }
 
     @RequestMapping(value = "/new",method = RequestMethod.POST)

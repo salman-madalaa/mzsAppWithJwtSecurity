@@ -286,8 +286,8 @@
 
           </mat-card-content>
           <mat-card-actions>
-            <button mat-button (click)="sideNav.open();editUser(user)">Edit</button>
-            <button mat-button (click)="delteUser(user,i)">Delete</button>
+            <button mat-stroked-button (click)="sideNav.open();editUser(user)" color="primary" >Edit</button>
+            <button mat-stroked-button (click)="delteUser(user,i)" color="warn" style="float:right">Delete</button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -301,6 +301,27 @@
         <mat-grid-tile>3</mat-grid-tile>
         <mat-grid-tile>4</mat-grid-tile>
       </mat-grid-list>
+
+      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let role of roles; let i = index">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{role.name}}</mat-card-title>
+            <mat-card-subtitle>{{role.description}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="user-details">
+            users1
+            </div>
+
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-stroked-button (click)="sideNav.open();editUser(user)" color="primary" >Edit</button>
+            <button mat-stroked-button (click)="delteUser(user,i)" color="warn" style="float:right">Delete</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+
     </div>
 
 

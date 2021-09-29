@@ -48,11 +48,13 @@ public class UserService {
         Role adminRole = new Role();
         adminRole.setId(1);
         adminRole.setName(ERole.ROLE_ADMIN);
+        adminRole.setDescription("Manages all aspects of School");
         roleRepository.save(adminRole);
 
         Role userRole = new Role();
         userRole.setId(2);
         userRole.setName(ERole.ROLE_USER);
+        userRole.setDescription("Manages User aspects");
         roleRepository.save(userRole);
 
         User adminUser= new User();

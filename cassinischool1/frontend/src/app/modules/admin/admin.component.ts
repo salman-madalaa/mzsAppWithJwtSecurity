@@ -15,9 +15,11 @@ import { AdminSidepanelComponent } from './adminSidepanel/admin-sidepanel/admin-
 })
 export class AdminComponent implements OnInit, AfterViewInit {
   public userForm: FormGroup;
+  public roleForm: FormGroup;
   type = 'user';
   opened; any;
   users: any;
+  roles: any;
   editUserInfo: any;
   editRoleInfo: any;
   imageSrc:any;
@@ -27,6 +29,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getAllUers();
+    this.getAllRoles();
 
     this.userForm = this.formBuilder.group({
       id: new FormControl('', []),
@@ -39,7 +42,16 @@ export class AdminComponent implements OnInit, AfterViewInit {
       email: new FormControl('', []),
       roles: this.formBuilder.array([])
     })
+
+
+    this.roleForm = this.formBuilder.group({
+      id: new FormControl('', []),
+      name: new FormControl('', [Validators.required]),
+      description: new FormControl('', []),
+    })
+
   }
+
 
   ngAfterViewInit() {
     this._overlaySidePanelService.setContent(AdminSidepanelComponent);
@@ -58,7 +70,6 @@ export class AdminComponent implements OnInit, AfterViewInit {
       console.log(error);
     })
   }
-
   closeSidepanel() {
     document.getElementById("close").click();
   }
@@ -97,6 +108,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     this._userSer.createUser(ob).subscribe((data) => {
       this.getAllUers();
       this.userForm.reset();
+      this.imageSrc =null;
       this.loaderSer.hideNgxSpinner();
       this.loaderSer.showSucessSnakbar("User created successfully");
     }, (error) => {
@@ -207,5 +219,18 @@ export class AdminComponent implements OnInit, AfterViewInit {
     this.imageSrc = null;
     this.userForm.controls['image'].setValue(this.imageSrc);
   }
+
+
+
+
+//-------------------------Role----------------------------
+getAllRoles() {
+  this._userSer.getallRoles().subscribe((data) => {
+    console.log(data);
+    this.roles = data;
+  }, (error) => {
+    console.log(error);
+  })
+}
 
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - schoolZion@localhost" uuid="813d7b83-4607-4952-abb6-64269b9e2ab0">
+  <data-source name="MySQL - schoolZion@localhost" uuid="9b5d9e9e-e52a-43b4-95dc-f146742f82e4">
     <database-info product="MySQL" version="5.5.62" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.47 ( Revision: fe1903b1ecb4a96a917f7ed3190d80c049b1de29 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
@@ -12,9 +12,12 @@
     </table>
     <table name="roles" schema="" catalog="schoolzion" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="FKh8ciramu9cc9q3qcqiv4ue8a6" table="user_roles" schema="" catalog="schoolzion" columns="role_id"/>
+      <exported-key name="FKp56c1712k691lhsyewcssf40f" table="users" schema="" catalog="schoolzion" columns="role_id"/>
+      <exported-key name="FKa62j07k5mhgifpp955h37ponj" table="users_roles" schema="" catalog="schoolzion" columns="roles_id"/>
     </table>
     <table name="sibling_information" schema="" catalog="schoolzion" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -72,12 +75,28 @@
     <table name="users" schema="" catalog="schoolzion" type="TABLE">
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="image" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="last_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
       <column name="password" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone_number" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <column name="username" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="role_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FKp56c1712k691lhsyewcssf40f" columns="role_id" ref-table="roles" ref-schema="" ref-catalog="schoolzion" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="FKhfh9dx7w3ubf1co1vdev94g3f" table="user_roles" schema="" catalog="schoolzion" columns="user_id"/>
+      <exported-key name="FKml90kef4w2jy7oxyqv742tsfc" table="users_roles" schema="" catalog="schoolzion" columns="users_id"/>
       <index name="UK6dotkott2kjsp8vw4d0m25fb7" unique="true" columns="email"/>
       <index name="UKr43af9ap4edm43mmtq01oddj6" unique="true" columns="username"/>
+      <index name="FKp56c1712k691lhsyewcssf40f" unique="false" columns="role_id"/>
+    </table>
+    <table name="users_roles" schema="" catalog="schoolzion" type="TABLE">
+      <column name="users_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="roles_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="users_id,roles_id"/>
+      <foreign-key name="FKml90kef4w2jy7oxyqv742tsfc" columns="users_id" ref-table="users" ref-schema="" ref-catalog="schoolzion" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKa62j07k5mhgifpp955h37ponj" columns="roles_id" ref-table="roles" ref-schema="" ref-catalog="schoolzion" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKa62j07k5mhgifpp955h37ponj" unique="false" columns="roles_id"/>
     </table>
   </data-source>
 </component>
